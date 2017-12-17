@@ -1,14 +1,62 @@
 <html>
+
 <head>
 </head>
 
 <body>
-  <div data-aos="fade-up" data-aos-anchor-placement="top-center">
-    <div nn_deluminator_start="ey"></div>
-    <div nn_deluminator_end="ey"></div>
+    <div nn_deluminator_color="rgb(255, 255, 255)" class="value deluminator">
+      <div class="_color" style="background:rgb(255,255,255)"></div>
+    </div>
+    <div nn_deluminator_color="rgb(0, 0, 0)" class="value deluminator">
+      <div class="_color" style="background:rgb(0,0,0)"></div>
+    </div>
+    <div nn_deluminator_color="rgb(0, 0, 0)" class="half deluminator">
+      <div class="_color" style="background:rgb(0,0,0)"></div>
+    </div>
+    <div  class="half deluminator">
+    </div>
+    <div class="full deluminator">
+      <div class="_color" style="background:rgb(242, 0, 255)"></div>
+    </div>
+    <div nn_deluminator_color="rgb(0, 0, 0)" class="full deluminator">
+      <div class="_color" style="background:rgb(0,0,0)"></div>
+    </div>
 
+       <div nn_deluminator_color="rgb(255, 255, 255)" class="value deluminator">
+          <div class="_color" style="background:rgb(255,255,255)"></div>
 </body>
 
+<style>
+  .deluminator {
+    width: 100%;
+    border: rgb(0, 255, 166) 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ._color {
+    border: rgb(133, 133, 133) 5px solid;
+    width: 100px;
+    height: 100px;
+  }
+
+  .value {
+    height: 493px;
+  }
+
+  .half {
+    height: 50vh;
+  }
+
+  .full {
+    height: 100vh;
+  }
+
+  .third {
+    height: 33.3vh;
+  }
+</style>
 <script src="./build/app.bundle.js"></script>
 
 </html>

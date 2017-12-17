@@ -1,5 +1,5 @@
 import AOS from "aos"
-import {person,Deluminator} from "./lib"
+import Deluminator from "./deluminator"
 
 AOS.init({
   offset: 200,
@@ -8,7 +8,5 @@ AOS.init({
   delay: 100,
 });
 
-var deluminator = new Deluminator("white")
-console.log(deluminator)
-deluminator.changecolor("black")
+var deluminator = new Deluminator()
 console.log(deluminator)
