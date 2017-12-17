@@ -1,6 +1,6 @@
 import Chroma from "chroma-js"
 import _ from "lodash"
-import {loadCoordinatesOfElements,getElements} from "./helper"
+import {loadCoordinatesOfElements,getElements,getCurrentRoll} from "./helper"
 
 export default class Deluminator {
   constructor(lastColor) {
@@ -15,11 +15,9 @@ export default class Deluminator {
     this.windowResizeHandler = this.windowResizeHandler.bind(this)
     //watch for events
     window.onresize = this.windowResizeHandler
-    //create local objects
     this.deluminators = getElements("nn_deluminator_color")
-    //
-
     this.runSetup()
+    window.requestAnimationFrame(this.requestFrameCallBack);
 
   }
 
@@ -40,26 +38,13 @@ export default class Deluminator {
     var lst = this.elementsBoxes[this.elementsBoxes.length-1].center.x-window.innerHeight/2
     domain[domain.length-1] = lst
     this.scale = Chroma.scale(colors).domain(domain)
-    window.requestAnimationFrame(this.requestFrameCallBack);
 
 }
 
   requestFrameCallBack() {
-    var current = this.getCurrentRoll(this.elementsBoxes[0])
+    var current = getCurrentRoll(this.elementsBoxes[0])
     var kolor = this.scale(current).hex()
-    this.changecolor(kolor)
-  }
-
-  getCurrentRoll(el){
-    var currentRoll = 0
-    var body = document.body;
-    var scrollTop = window.pageYOffset || el.scrollTop || body.scrollTop;
-    currentRoll =  scrollTop + el.center.x
-    return currentRoll
-  }
-  changecolor(hexColor) {
-    this.body.style.backgroundColor = hexColor
+    this.body.style.backgroundColor = kolor
     window.requestAnimationFrame(this.requestFrameCallBack);
   }
-
 }

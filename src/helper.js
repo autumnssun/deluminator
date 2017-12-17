@@ -19,7 +19,6 @@ export const getCoords = function(elem) { // crossbrowser version
   // console.log(box)
   var top = box.top + scrollTop - clientTop + (box.height / 2);
   var left = box.left + scrollLeft - clientLeft + (box.width / 2);
-
   return {box:box, center:{x: Math.round(top), y: Math.round(left)}};
 }
 
@@ -29,4 +28,12 @@ export const loadCoordinatesOfElements=function(elements) {
     return (getCoords(item))
   })
   return coordinates
+}
+
+export const getCurrentRoll=function(el){
+  var currentRoll = 0
+  var body = document.body;
+  var scrollTop = window.pageYOffset || el.scrollTop || body.scrollTop;
+  currentRoll =  scrollTop + el.center.x
+  return currentRoll
 }
